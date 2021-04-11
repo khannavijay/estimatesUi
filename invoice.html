@@ -37,7 +37,7 @@
             </div>
             <div class="col-6">
                 <div class="input-group input-group-sm mb-3 ">
-                    <span class="input-group-text" id="PurchaseorderDt">Supply order dt</span>
+                    <span class="input-group-text" id="PurchaseorderDt">Supply order Dt</span>
                     <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="PurchaseorderDt">
                   </div>
             </div>          
@@ -46,13 +46,13 @@
         <div class="row">
             <div class="col-6">
                 <div class="input-group input-group-sm mb-3 ">
-                    <span class="input-group-text" id="MBNo">MB_No</span>
+                    <span class="input-group-text" id="MBNo">M-Book No</span>
                     <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="MBNo">
                   </div>
             </div>
             <div class="col-6">
                 <div class="input-group input-group-sm mb-3 ">
-                    <span class="input-group-text" id="MBpage">MB_page</span>
+                    <span class="input-group-text" id="MBpage">M-Book Page</span>
                     <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="MBpage">
                   </div>
             </div>          
@@ -68,14 +68,13 @@
                               <th scope="col">Item Category</th>
                               <th scope="col">Item</th>
                               <th scope="col">Size</th>
-                              <th scope="col">Qty</th>
-                              <th scope="col">Units</th>
+                              <th scope="col">Qty/Units</th>
                               <th scope="col">Rate</th>
                               <th scope="col">Amount</th>
                               <th scope="col">Remarks</th>
                             </tr>
                           </thead>
-                          <tbody >
+                          <tbody id = "invoiceBody">
                             
                           </tbody>
                     </table>
@@ -97,59 +96,59 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="entryForm">
                             <div class="row mb-3">
                                  <div class="col-4">
                                     <label for="exampleDataList" class="form-label">Item Category</label>
-                                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                                    <datalist id="datalistOptions">
-                                    <option value="San Francisco">
-                                    <option value="New York">
-                                    <option value="Seattle">
-                                    <option value="Los Angeles">
-                                    <option value="Chicago">
+                                    <input class="form-control" list="categoryOptions" id="categoryDataList" placeholder="Type to search...">
+                                    <datalist id="categoryOptions">
+                                    <option value="Pipe">
+                                    <option value="Valves">
+                                    <option value="HouseHolds">
+                                    <option value="PLB Duct">
+                                    <option value="Verticals">
                                     </datalist>
                                  </div>
                                  <div class="col-4">
                                     <label for="exampleDataList" class="form-label">Item</label>
-                                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                                    <datalist id="datalistOptions">
-                                    <option value="San Francisco">
-                                    <option value="New York">
-                                    <option value="Seattle">
-                                    <option value="Los Angeles">
-                                    <option value="Chicago">
+                                    <input class="form-control" list="itemOptions" id="itemDataList" placeholder="Type to search...">
+                                    <datalist id="itemOptions">
+                                    <option value="HDPE PE100 6kg">
+                                    <option value="Valve">
+                                    <option value="MC_Saddles">
+                                    <option value="PLB_DUCT">
+                                    <option value="DI D/F 2.0 mts Pipes">
                                     </datalist>
                                  </div>  
                                  <div class="col-4">
                                     <label for="exampleDataList" class="form-label">Size</label>
-                                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                                    <datalist id="datalistOptions">
-                                    <option value="San Francisco">
-                                    <option value="New York">
-                                    <option value="Seattle">
-                                    <option value="Los Angeles">
-                                    <option value="Chicago">
+                                    <input class="form-control" list="sizeListOptions" id="sizeDataList" placeholder="Type to search...">
+                                    <datalist id="sizeListOptions">
+                                    <option value="-">
+                                    <option value="75">
+                                    <option value="125">
+                                    <option value="15">
+                                    <option value="40">
                                     </datalist>
                                  </div> 
                             </div>    
                             <div class="row">
                                 <div class="col-4">
                                     <div class="input-group input-group-sm mb-3">
-                                        <span class="input-group-text" id="inputGroup-sizing-sm">Quantity</span>
-                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <span class="input-group-text" id="inputGroupQty">Quantity</span>
+                                        <input type="number" id="inputQty" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroupQty">
                                       </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="input-group input-group-sm mb-3">
-                                        <span class="input-group-text" id="inputGroup-sizing-sm">Unit Price</span>
-                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <span class="input-group-text" id="inputGroupPrice">Unit Price</span>
+                                        <input type="number" id="inputPrice" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroupPrice">
                                       </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12">
                                     <div class="input-group input-group-sm mb-3">
-                                        <span class="input-group-text" id="inputGroup-sizing-sm">Total Rs</span>
-                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        <span class="input-group-text" id="inputGroupTotalCost">Remarks</span>
+                                        <input type="text" id="ItemRemarks" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroupTotalCost">
                                       </div>
                                 </div>
                             </div>           
@@ -158,7 +157,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" onclick="addToTable()">Save</button>
                     </div>
                 </div>
                 </div>
