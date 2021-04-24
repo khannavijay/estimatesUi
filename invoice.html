@@ -15,6 +15,47 @@
         <h3 class="text-center">PART-A</h3>
         <div class="row">
             <div class="col-6">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="habSlNo">Hab Sl No</span>
+                    <input type="search" class="form-control" aria-label="Sizing example input" aria-describedby="habSlNo">
+                  </div>
+            </div>
+            <div class="col-6">
+                    <div class="input-group input-group-sm mb-3 ">
+                        <span class="input-group-text" id="dist">District	</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="dist">
+                    </div>
+            </div>
+            <div class="col-6">
+                    <div class="input-group input-group-sm mb-3 ">
+                        <span class="input-group-text" id="sub-d">Sub-Div	</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="sub-d">
+                    </div>
+            </div>        
+            <div class="col-6">
+                    <div class="input-group input-group-sm mb-3 ">
+                        <span class="input-group-text" id="mandal">Mandal	</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="mandal">
+                    </div>
+            </div>
+            <div class="col-6">
+                   <div class="input-group input-group-sm mb-3 ">
+                        <span class="input-group-text" id="GP">GP	</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="GP">
+                    </div>
+            </div>                           
+            <div class="col-6">
+                   <div class="input-group input-group-sm mb-3 ">
+                        <span class="input-group-text" id="hab">Habitation	</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="hab">
+                    </div>
+            </div> 
+             
+            
+        </div>
+        <hr style="height:1px;border-width:0;color:black;background-color:black">  
+        <div class="row">
+            <div class="col-6">
                 <div class="input-group input-group-sm mb-3 ">
                     <span class="input-group-text" id="InvoiceNo">Invoice No	</span>
                     <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="InvoiceNo">
@@ -26,7 +67,13 @@
                     <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="InvoiceDt">
                 </div>
             </div>           
-              
+            <div class="col-6">
+                <div class="input-group input-group-sm mb-3 ">
+                    <span class="input-group-text" id="firmName">Firm Name	</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="firmName">
+                </div>
+            </div> 
+            
         </div>
         <div class="row">
             <div class="col-6">
@@ -68,7 +115,8 @@
                               <th scope="col">Item Category</th>
                               <th scope="col">Item</th>
                               <th scope="col">Size</th>
-                              <th scope="col">Qty/Units</th>
+                              <th scope="col">Qty</th>
+                              <th scope="col">Units</th>
                               <th scope="col">Rate</th>
                               <th scope="col">Amount</th>
                               <th scope="col">Remarks</th>
@@ -99,37 +147,23 @@
                         <form id="entryForm">
                             <div class="row mb-3">
                                  <div class="col-4">
-                                    <label for="exampleDataList" class="form-label">Item Category</label>
-                                    <input class="form-control" list="categoryOptions" id="categoryDataList" placeholder="Type to search...">
-                                    <datalist id="categoryOptions">
-                                    <option value="Pipe">
-                                    <option value="Valves">
-                                    <option value="HouseHolds">
-                                    <option value="PLB Duct">
-                                    <option value="Verticals">
-                                    </datalist>
+                                    <label for="categoryDataList" class="form-label">Item Category</label>
+                                    <select class="form-select" aria-label="Default select example" id="categoryDataList">
+                                        <option value="Select Item" selected>Select Item</option>
+                                    </select>
                                  </div>
                                  <div class="col-4">
-                                    <label for="exampleDataList" class="form-label">Item</label>
-                                    <input class="form-control" list="itemOptions" id="itemDataList" placeholder="Type to search...">
-                                    <datalist id="itemOptions">
-                                    <option value="HDPE PE100 6kg">
-                                    <option value="Valve">
-                                    <option value="MC_Saddles">
-                                    <option value="PLB_DUCT">
-                                    <option value="DI D/F 2.0 mts Pipes">
-                                    </datalist>
+                                    <label for="itemDataList" class="form-label">Item</label>
+                                    <select class="form-select" aria-label="Default select example" id="itemDataList">
+                                        <option value="Select Item" selected>Select Item</option>
+                                    </select>
+                                    
                                  </div>  
                                  <div class="col-4">
-                                    <label for="exampleDataList" class="form-label">Size</label>
-                                    <input class="form-control" list="sizeListOptions" id="sizeDataList" placeholder="Type to search...">
-                                    <datalist id="sizeListOptions">
-                                    <option value="-">
-                                    <option value="75">
-                                    <option value="125">
-                                    <option value="15">
-                                    <option value="40">
-                                    </datalist>
+                                    <label for="sizeDataList" class="form-label">Size</label>
+                                    <select class="form-select" aria-label="Default select example" id="sizeDataList">
+                                        <option value="Select Item" selected>Select Item</option>
+                                    </select>
                                  </div> 
                             </div>    
                             <div class="row">
@@ -137,6 +171,12 @@
                                     <div class="input-group input-group-sm mb-3">
                                         <span class="input-group-text" id="inputGroupQty">Quantity</span>
                                         <input type="number" id="inputQty" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroupQty">
+                                      </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroupUnit">Unit</span>
+                                        <input type="number" id="inputUnit" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroupUnit">
                                       </div>
                                 </div>
                                 <div class="col-4">
@@ -165,6 +205,7 @@
 
       </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="invoice.js"></script>
+    <script type="text/javascript" src="items.json"></script>
+    <script type="text/javascript" src="invoice.js"></script>
 </body>
 </html>

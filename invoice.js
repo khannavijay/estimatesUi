@@ -1,3 +1,30 @@
+let items;
+let categoryDataList = document.getElementById("categoryDataList");
+let categorySel = document.getElementById("categoryOptions");
+let itemDataList = document.getElementById("itemDataList");
+let sizeDataList = document.getElementById("sizeDataList");
+
+
+
+fetch("./items.json")
+.then(response => {
+   return response.json();
+})
+.then(data => {
+      items = data.itemlist;      
+      str ="";
+      for (x in items) {
+            let option = document.createElement('option');
+            option.value = x;
+            option.innerHTML=x;
+            categoryDataList.appendChild(option);
+          }
+          itemDataList.innerHTML = " <option value='Select Item' selected>Select Item</option>";
+          sizeDataList.innerHTML ="<option value='Select Item' selected>Select Item</option>";
+});
+ 
+ 
+
  //gets table
  var oTable = document.getElementById('itemsList');
 
@@ -24,11 +51,16 @@
  }
 
 
+ 
+ 
+ 
+
  function addToTable(){
        let catogary =  document.getElementById("categoryDataList").value;
        let item = document.getElementById("itemDataList").value;
        let size = document.getElementById("sizeDataList").value;
        let qty = document.getElementById("inputQty").value;
+       let unit = document.getElementById("inputGroupUnit").value;
        let price = document.getElementById("inputPrice").value;
        let amount = qty*price;
        let ItemRemarks = document.getElementById("ItemRemarks").value;
@@ -47,15 +79,45 @@
        var cell6 = row.insertCell(5);
        var cell7 = row.insertCell(6);
        var cell8 = row.insertCell(7);
+       var cell9 = row.insertCell(8);
 
        cell1.innerHTML = rowLength;
        cell2.innerHTML = catogary;       
        cell3.innerHTML = item;
        cell4.innerHTML = size; 
        cell5.innerHTML = qty;
-       cell6.innerHTML = price; 
-       cell7.innerHTML = amount;
-       cell8.innerHTML = ItemRemarks; 
+       cell6.innerHTML = unit;
+       cell7.innerHTML = price; 
+       cell8.innerHTML = amount;
+       cell9.innerHTML = ItemRemarks; 
 
        document.getElementById("entryForm").reset();
  }
+
+ 
+ categoryDataList.addEventListener('change',(e)=>{
+      let itemtype = e.target.value;
+      itemDataList.innerHTML ="<option value='Select Item' selected>Select Item</option>";
+      for (x in items[itemtype]) {
+            let option = document.createElement('option');
+            option.value = x;
+            option.innerHTML=x;
+            itemDataList.appendChild(option);
+          }
+          sizeDataList.innerHTML ="<option value='Select Item' selected>Select Item</option>";
+ });
+
+ itemDataList.addEventListener('change',(e)=>{
+       let category = document.getElementById("categoryDataList").value;
+      let itemtype = e.target.value;
+      sizeDataList.innerHTML ="<option value='Select Item' selected>Select Item</option>";
+      for (x in items[category][itemtype]) {
+            let option = document.createElement('option');
+            option.value = items[category][itemtype][x];
+            option.innerHTML=items[category][itemtype][x];
+            sizeDataList.appendChild(option);
+          }
+          
+ });
+
+
